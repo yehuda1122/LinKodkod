@@ -1,0 +1,9 @@
+.mainApp {
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  flex-direction: column;
+      background: linear-gradient(135deg,
+            #afe6dd 0%,
+            #5a6665 90%);
+}
