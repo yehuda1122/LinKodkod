@@ -7,14 +7,15 @@ export async function getPosts() {
 }
 
 
-export async function getPostById(id) {
-
+export async function getPostById(idString) {
+    const id = parseInt(idString)
     const data = await getData()
+    console.log('s',id);
     if (!id) {
         return false
     }
     const post = data.find(d => d.id === id)
-    // console.log('post',post);
+    console.log('post',post);
     return post
 }
 

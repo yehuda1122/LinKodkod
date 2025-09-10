@@ -1,17 +1,25 @@
-import Post, { type post } from "./Post"
+import Post from "./Post"
 import "../../style/posts.css"
+import { useEffect } from "react"
+// import { myContext } from "../../App"
 
-export default function Posts() {
+export type post = {
+  img: string;
+  Description: string;
+  author: string;
+  timer: string;
+  like: number | string
+  id:number
+}
+type Posts = post[]
 
-  let time = new Date().toLocaleString()
-
-
-  let posts = [{ img: "public/exsem.jpg", Description: "my posts", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my posts", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my posts", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my posts", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my posts", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my post", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my post", author: "yehuda",like:"like", timer: time },{ img: "public/exsem.jpg", Description: "my post", author: "yehuda", timer: time }] as post[]
+export default function Posts({ posts }: { posts: Posts }) {
+  useEffect(()=> {} ,[posts])
 
   return (
     <div className="mainPosts" >
-      {posts.map((e) => (
-        <Post  post={e} />
+      {posts?.map((e: any) => (
+        <Post key={e.id} post={e} />
       ))}
     </div>
   )

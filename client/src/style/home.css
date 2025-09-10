@@ -1,0 +1,42 @@
+.mainHome {
+    width: 60vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    display: flex;
+    justify-self: center;
+    /* color: white; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    margin-bottom: -50px;
+    display: flex;
+    justify-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    /* color: white; */
+}
+.contentHome {
+    margin-bottom: 2%;
+    width: 30%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg,
+            #94c4bc 0%,
+            #5a6665 70%);
+
+    border-radius: 1.5rem;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}

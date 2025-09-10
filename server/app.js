@@ -1,12 +1,12 @@
 
 import express from "express"
 import cors from "cors"
-import { postsRouter } from "./router/rout.js"
+import { postsRouter,userRouter } from "./router/rout.js"
+import cookieParser from "cookie-parser";
 
-// import cookieParser from "cookie-parser";
-// app.use(cookieParser());
 
 const app = express();
+app.use(cookieParser());
 app.use(cors({
     origin: "*",
     method: ["POST", "GET", "PUT", "DELETE", "OPTIONS", "PATCH"],
@@ -16,7 +16,7 @@ app.use(express.json());
 
 
 app.use("/posts", postsRouter)
-// app.use("/user", plyeerRouter)
+app.use("/user", userRouter)
 
 const Port = 3003
 app.listen(Port, () => {

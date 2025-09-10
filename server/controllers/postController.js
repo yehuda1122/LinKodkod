@@ -1,4 +1,4 @@
-import { getPosts, writeNewPost, DeletePostInList,updateSingelPost } from "../services/servicePost.js";
+import { getPosts, writeNewPost, DeletePostInList,updateSingelPost ,getPostById} from "../services/servicePost.js";
 
 export async function getAllPosts(req, res) {
     try {
@@ -12,6 +12,22 @@ export async function getAllPosts(req, res) {
     }
 }
 
+
+export async function getPostId(req, res) {
+    const id = req.params.id
+    console.log('d',id);
+    try {
+        const respons = await getPostById(id);
+        console.log('rre',respons);
+        res.status(200).json(respons)
+    }
+    catch (error) {
+        res.status(500).json({ error: "not read" })
+    }
+}
+
+
+
 export async function createPost(req, res) {
     try {
         const newPost = req.body
@@ -19,7 +35,7 @@ export async function createPost(req, res) {
             res.json({ msg: "Image and description required" })
         }
         await writeNewPost(newPost);
-        res.status(201).json({ msg: "The post created" })
+        res.status(201).json({ success: true, msg: "The post created" })
 
     }
     catch (error) {

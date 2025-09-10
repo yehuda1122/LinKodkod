@@ -1,0 +1,60 @@
+.mainLogin {
+    margin-top: 1%;
+    width: 20vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(222, 222, 220);
+    border-radius: 1.2rem;
+    /* border: 2px solid white; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.inputLogin {
+    margin: 2%;
+    width: 70%;
+    height: 10%;
+    border-radius: 1rem
+}
+
+.button {
+    justify-content: center;
+    align-items: center;
+    margin-right: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 70%;
+    height: 10%;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    background: linear-gradient(135deg,
+            #afe6dd 0%,
+            #5a6665 90%);
+}
+
+#eror {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: -10%;
+}
+
+.sinngUpLog {
+    margin-top: -3%;
+    color: blue;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+
+}
