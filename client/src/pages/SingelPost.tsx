@@ -1,5 +1,8 @@
-import { useContext, useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { Outlet } from 'react-router'
+import "../style/singlePost.css"
+
 
 type Post = {
   img: string,
@@ -9,7 +12,7 @@ type Post = {
   like: string
   time: string
 }
-type Posts = Post[]
+// type Posts = Post[]
 
 
 export default function SingelPost() {
@@ -31,12 +34,13 @@ export default function SingelPost() {
 
   return (
     <div>
-      <img className="imgPost" src={post?.img} alt="" />
+      <Outlet />
+      <div className="mainSingelPost">
+      <p className="name">{post?.author}</p>
+      <img className="imgPostSingel" src={`http://localhost:3003/${id}.jpeg`} alt="" />
       {/* <button onClick={() => { setLike(like + 1) }} >{post?.like}</button> */}
       <h3 className="TitlePost">{post?.Description}</h3>
-      <div className="mainTxtPost">
-        <p>author: {post?.author}</p>
-        <p>{post?.time}</p>
+      <p className="TimeSingel">{post?.time}</p>
       </div>
     </div>
   )

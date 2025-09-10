@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react"
+// import { useContext } from "react"
 // import { myContext } from "../../App"
 export type post = {
   img: string;
@@ -17,18 +17,16 @@ export default function Post({ post }: PropsWithChildren & { post: post }) {
   const [like, setLike] = useState(0)
 
   // const postser = useContext(myContext)
-
+  console.log("object",post.timer,post.Description)
   return (
+      <Link  className="Link" to={`/${post.id}`}>
     <div className="mainPost" >
-      <Link to={`/${post.id}`}>
-        <img className="imgPost" src={post.img} alt="" />
-        <button onClick={() => { setLike(like + 1) }} >{like} {post.like}</button>
-        <h3 className="TitlePost">{post.Description}</h3>
-        <div className="mainTxtPost">
-          <p>author: {post.author}</p>
-          <p>{post.timer}</p>
-        </div>
-      </Link>
+          <p className="author">{post.author}</p>
+        <img className="imgPost" src={`http://localhost:3003/${post.id}.jpeg`} alt="img" />
+        <button onClick={() => { setLike(like + 1) }} >{like} {post.like}👍</button>
+        <p className="TitlePost">{post.Description}</p>
+          <p className="time">{post?.timer}</p>
     </div>
+      </Link>
   )
 }

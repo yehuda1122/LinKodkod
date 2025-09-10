@@ -1,14 +1,18 @@
 .mainLogin {
     margin-top: 1%;
     width: 20vw;
+    min-height: 200px;
+    min-width: 350px;
+
     height: 60vh;
     display: flex;
     flex-direction: column;
     justify-self: center;
     justify-content: center;
     align-items: center;
-    background-color: rgb(222, 222, 220);
-    border-radius: 1.2rem;
+  background: linear-gradient(135deg,
+      #7494ec 0%,
+      #abadb0 90%);    border-radius: 1.2rem;
     /* border: 2px solid white; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
@@ -23,16 +27,16 @@
 .button {
     justify-content: center;
     align-items: center;
-    margin-right: 15%;
+    margin-right: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
     width: 70%;
     height: 10%;
     border-radius: 1.2rem;
     font-size: 1rem;
-    background: linear-gradient(135deg,
-            #afe6dd 0%,
-            #5a6665 90%);
+  background: linear-gradient(135deg,
+      #7494ec 0%,
+      #abadb0 90%);
 }
 
 #eror {

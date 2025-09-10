@@ -1,7 +1,7 @@
-import { useState} from "react";
+import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router"
 import "../style/login.css"
-// import { tokenContex } from "../App";
+import { tokenContex } from "../App";
 
 
 export default function Login() {
@@ -9,6 +9,7 @@ export default function Login() {
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
     const [eror, setEror] = useState("")
+    const context = useContext(tokenContex)
 
     // const context = useContext(tokenContex) 
 
@@ -24,12 +25,14 @@ export default function Login() {
             body: JSON.stringify(log)
         })
         const current = await user.json()
+        console.log("object,", current)
         if (current.success) {
-                navigate("/HomePost")
+            context?.setToken(current.token)
+            navigate("/HomePost")
         }
         else
             setEror(current.message)
-            navigate("/login")
+        // navigate("/login")
     }
 
     return (

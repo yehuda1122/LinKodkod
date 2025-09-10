@@ -1,6 +1,9 @@
 .mainHome {
     width: 60vw;
     height: 70vh;
+    min-width: 350px;
+    min-height: 300px;
+
     display: flex;
     flex-direction: column;
     justify-self: center;
@@ -23,8 +26,11 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
     /* color: white; */
 }
+
 .contentHome {
     margin-bottom: 2%;
+    min-height: 70px;
+    min-width: 100px;
     width: 30%;
     height: 13%;
     display: flex;
@@ -32,9 +38,9 @@ h3 {
     justify-content: center;
     text-decoration: none;
     font-size: 1.5rem;
-    background: linear-gradient(135deg,
-            #94c4bc 0%,
-            #5a6665 70%);
+  background: linear-gradient(135deg,
+      #7494ec 0%,
+      #abadb0 90%);
 
     border-radius: 1.5rem;
     color: black;

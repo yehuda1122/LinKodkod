@@ -3,7 +3,9 @@ export default function Heders() {
   return (
     <div className="mainHeader">
         <img className="imgHeader" src="public/exsem.jpg" alt="" />
+        <p></p>
         <h2 className="titleHeader">The right place for Kodkod</h2>
+
     </div>
   )
 }

@@ -1,13 +1,18 @@
 .mainAdd {
     margin-top: 1%;
     width: 50vw;
+    min-width: 350px;
+    min-height: 300px;
+
     height: 60vh;
     display: flex;
     flex-direction: column;
     justify-self: center;
     justify-content: center;
     align-items: center;
-    background-color: rgb(222, 222, 220);
+    background: linear-gradient(135deg,
+            #7494ec 0%,
+            #abadb0 90%);
     border-radius: 1.2rem;
     gap: 4%;
     /* border: 2px solid white; */
@@ -27,15 +32,15 @@
 }
 
 .buttonAdd {
-    margin-right: 20%;
+    margin-right: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60%;
     height: 10%;
     border-radius: 1rem;
-    background: linear-gradient(135deg,
-            #afe6dd 0%,
-            #5a6665 90%);
+   background: linear-gradient(135deg,
+            #7494ec 0%,
+            #abadb0 90%);
     font-size: 1.3rem;
 }

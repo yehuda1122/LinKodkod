@@ -1,34 +1,48 @@
 import Posts from "../componnet/application-layout/Posts"
-import { useEffect, useState } from "react"
+import { useContext,useEffect, useState } from "react"
+import { Outlet } from 'react-router'
+import {tokenContex} from "../App"
+import "../style/homepost.css"
 
 
 type Post = {
-  img: string,
-  id: number
+  img: string
   Description: string
   author: string
-  like: string
-  time: string
+  timer: string
+  like: number | string
+  id: number
 }
 type Posts = Post[]
 
 export default function HomePost() {
 
-const [posts,setPosts] = useState<null | Posts>([   ])
+      const token = useContext(tokenContex)
+    console.log("Tokken",token)
 
-      useEffect(() => {
-        async function getData() {
-          const data = await fetch("http://localhost:3003/posts")
-          const arrPost = await data.json();
-          setPosts(arrPost)
+  const [posts, setPosts] = useState<Posts>([])
+
+  useEffect(() => {
+    async function getData() {
+      const data = await fetch("http://localhost:3003/posts", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token?.token}`,
         }
-        getData()
-    }, [])
-    console.log("n",posts)
-    
-    return (
-        <div>
-            <Posts posts={posts} />
-        </div>
-    )
+          // credentials: "include"
+        })
+
+      const arrPost = await data.json();
+      setPosts(arrPost)
+    }
+    getData()
+  }, [])
+  console.log("n", posts)
+
+  return (
+    <div className="mainHomePost">
+      <Outlet />
+      <Posts posts={posts} />
+    </div>
+  )
 }

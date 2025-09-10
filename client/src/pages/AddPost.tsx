@@ -1,16 +1,17 @@
-import { useState, useContext } from "react"
-import { useNavigate } from "react-router"
-
-// import { tokenContex } from "../App"
+import {useContext, useState } from "react"
+import { Outlet } from 'react-router'
+import { tokenContex } from "../App"
 import "../style/addPost.css"
 
 export default function AddPost() {
-    const navigate = useNavigate()
 
     const [img, setImg] = useState("")
     const [Description, setDescription] = useState("")
     const [author, setAuthor] = useState("")
     const [msg, setMsg] = useState("")
+
+    const token = useContext(tokenContex)
+    console.log("Tokken",token)
 
     // const token = useContext(tokenContex)
     // console.log("Tokken",token)
@@ -26,16 +27,17 @@ export default function AddPost() {
         const add = await fetch("http://localhost:3003/Posts/add", {
             method: "POST",
             headers: {
+                "Authorization": `Bearer ${token?.token}`,
                 "Content-Type": "application/json",
-                // "Authorization": `Bearer ${token?.token}`,
             },
+            // credentials: "include",
             body: JSON.stringify(newPost)
-            //   credentials: "include" 
         })
         const data = await add.json();
         console.log("object", data)
         if (data.success) {
-            navigate("/HomePost")
+            setMsg("the post craeted go to home to see hime")
+            // navigate("/HomePost")
         }
         else {
             setMsg(data.eror)
@@ -45,6 +47,7 @@ export default function AddPost() {
 
     return (
         <div >
+            <Outlet />
             <form className="mainAdd" onSubmit={addPost}>
                 <h1 className="title">Create Post </h1>
                 <input className="inputAdd" value={img} placeholder="entet url img" onChange={(e) => { setImg(e.target.value) }} type="text" />
