@@ -7,7 +7,8 @@ import { verifyToken } from "../function/verify.js";
 export const postsRouter = express.Router();
 export const userRouter = express.Router();
 
-postsRouter.get("/",verifyToken, getAllPosts);
+
+postsRouter.get("/", getAllPosts);
 postsRouter.post("/add", createPost);
 postsRouter.delete("/:id", deletePost);
 postsRouter.put("/update", updatePost);

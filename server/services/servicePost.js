@@ -26,6 +26,7 @@ export async function writeNewPost(newPost) {
         return false
     }
     count = Math.max(...posts.map(e => e.id))
+    newPost.time = new Date().toLocaleString()
     newPost.id = count + 1
     posts.push(newPost)
     const post = await writeData(posts)

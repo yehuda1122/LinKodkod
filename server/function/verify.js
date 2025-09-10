@@ -1,16 +1,17 @@
 import jwt from "jsonwebtoken";
-const secret = "tzMAlhgCs0qFrbQQsWEWfGr7G2iD3vHRlgYVLek5PR8rXbmJlzfxuIcgyMMJYtjxG38oAO5ocw6Ob1hFtZyO61bC6H9CJ"
+
 
 export function verifyToken(req, res, next) {
-    const token = req.cookies.token;
-
+    const authHeader = req.headers["authorization"];
+    const token = authHeader ? authHeader.split(" ")[1]:null;
     console.log("token:", token);
 
     if (!token) {
         return res.status(401).json({ error: "Unauthorized" });
     }
 
-    jwt.verify(token, secret, (err, decoded) => {
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
             return res.status(403).json({ error: "Invalid token" });
         }
@@ -18,6 +19,26 @@ export function verifyToken(req, res, next) {
         next();
     });
 }
+
+
+
+
+// export async function verifyToken(req, res, next) {
+//     const token = await req.cookies.token;
+//     console.log("token:", req.cookies);
+
+//     if (!token) {
+//         return res.status(401).json({ error: "Unauthorized" });
+//     }
+
+//     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//         if (err) {
+//             return res.status(403).json({ error: "Invalid token" });
+//         }
+//         req.user = decoded;
+//         next();
+//     });
+// }
 
 
 
