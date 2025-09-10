@@ -8,8 +8,8 @@ export const postsRouter = express.Router();
 export const userRouter = express.Router();
 
 
-postsRouter.get("/", getAllPosts);
-postsRouter.post("/add", createPost);
+postsRouter.get("/",verifyToken, getAllPosts);
+postsRouter.post("/add",verifyToken, createPost);
 postsRouter.delete("/:id", deletePost);
 postsRouter.put("/update", updatePost);
 postsRouter.get("/id/:id",getPostId)
